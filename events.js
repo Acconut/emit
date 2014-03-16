@@ -1,6 +1,11 @@
 "use strict";
 
-var eventTarget = ("EventTarget" in window) ? EventTarget : Node;
+var eventTarget = Element;
+if("EventTarget" in window) {
+    eventTarget = EventTarget
+} else if("Node" in window) {
+    eventTarget = Node;
+}
 
 eventTarget.prototype.on = eventTarget.prototype.addEventListener;
 eventTarget.prototype.off = eventTarget.prototype.removeEventListener;
