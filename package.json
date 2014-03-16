@@ -1,0 +1,24 @@
+{
+  "name": "testling-events",
+  "version": "0.0.0",
+  "devDependencies": {
+    "tape": "~2.10.2",
+    "browserify": "~3.32.1"
+  },
+  "scripts": {
+    "bundle": "browserify test.js > ./bundle.js"
+  },
+  "testling": {
+    "files": "test.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  },
+}
