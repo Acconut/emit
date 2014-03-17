@@ -3,6 +3,15 @@ var test = require("tape");
 // events.js doesn't export anything
 require("./events");
 
+// Hijack console to display output in document
+var out = document.createElement("pre");
+document.body.appendChild(out);
+console._log = console.log;
+console.log = function() {
+    out.innerHTML += arguments[0] + "\n";
+    console._log.apply(console, arguments);
+};
+
 test(function(t) {
     
     document.body.on("foo", function(event) {
